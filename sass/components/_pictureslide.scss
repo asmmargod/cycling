@@ -1,0 +1,84 @@
+.pictures {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0rem 1.5rem 5rem rgba($color-primary-dark, 0.4);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.6s;
+    outline-offset: 1rem;
+
+    @include respond(tab-port) {
+      float: left;
+      position: relative;
+      width: 25%;
+      box-shadow: 0rem 1.5rem 3rem rgba($color-primary-dark, 0.2);
+    }
+
+    &--p1 {
+      left: -1rem;
+      top: -3rem;
+
+      @include respond(tab-port) {
+        top: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+
+      @include respond(tab-port) {
+        top: 0;
+        transform: scale(1.5);
+      }
+    }
+
+    &--p3 {
+      left: 50%;
+      top: 22rem;
+
+      @include respond(tab-land) {
+        top: 17rem;
+        left: 28rem;
+        z-index: -1;
+      }
+
+      @include respond(tab-port) {
+        top: 0;
+        left: 0;
+        transform: scale(1.2);
+        z-index: -1;
+      }
+    }
+
+    &--p4 {
+      left: 3rem;
+      top: 16rem;
+
+      @include respond(tab-port) {
+        top: 0;
+        left: 0;
+        transform: scale(1.5);
+      }
+    }
+
+    &:hover {
+      outline: 0.5rem solid $color-primary-light;
+      transform: scale(1.1) translateY(0.5rem);
+      box-shadow: 0 2rem 5rem rgba($color-primary-medium, 0.5);
+      z-index: 20;
+
+      @include respond(tab-land) {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.88);
+  }
+}

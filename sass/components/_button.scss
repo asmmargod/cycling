@@ -1,0 +1,106 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    padding: 1rem 4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4rem;
+    transition: all 0.3s;
+    position: relative;
+    font-family: "Prompt", sans-serif;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgb($color-black, 0.3);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.3rem 0.8rem rgb($color-black, 0.3);
+  }
+
+  &--blue {
+    background: rgb(71, 175, 251);
+    background: radial-gradient(circle, rgba($color-primary-light, 35%), rgba($color-primary-medium, 75%), rgba($color-primary-dark, 100%));
+    color: rgb(165, 208, 248);
+    margin-top: 4%;
+    border: none;
+
+    &-2 {
+      margin: 2% auto;
+      cursor: pointer;
+    }
+  }
+
+  &--silver {
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.8), 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-color: #111;
+    color: $color-accent-light;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1);
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#333));
+
+    &::after {
+      background-color: rgba($color-black, 0.5);
+    }
+  }
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.3s;
+  }
+  &--blue::after {
+    background-color: #2c80ff;
+  }
+
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+
+  &-blue--animated {
+    animation: moveInBottom 0.5s ease-out 0.75;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary-dark;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px double rgba($color-primary-dark, 100%);
+    margin: -5px;
+    transition: all 0.9s;
+    animation: vibrate-1 0.5s linear infinite both;
+  }
+
+  &:hover {
+    background-color: $color-primary-medium;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+    border-radius: 25rem;
+    border-bottom: 0;
+    padding: 1rem;
+  }
+
+  &:active {
+    box-shadow: 0 0.3rem 0.5rem rgba($color-black, 0.4);
+    transform: translateY(0px);
+    border-bottom: 0;
+  }
+}

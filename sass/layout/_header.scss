@@ -1,0 +1,44 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(25deg, rgba($color-primary-dark, 50%), rgba($color-primary-medium, 75%), rgba($color-primary-light, 100%)), url(../images/hero-cycle.jpg);
+
+  background-size: cover;
+  background-position: 45% 65%;
+
+  clip-path: polygon(0 0, 100% 0, 100% 77vh, 0 100%);
+  position: relative;
+  border-radius: 3px;
+
+  @include respond(tab-port) {
+    border-radius: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    background-position: 75%;
+  }
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 83vh, 0 100%);
+    background-position: 70%;
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 6rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    @include respond(tab-port) {
+      line-height: 4rem;
+    }
+  }
+}

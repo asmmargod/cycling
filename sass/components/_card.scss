@@ -1,0 +1,233 @@
+.card {
+  perspective: 50rem;
+  -moz-perspective: 50rem;
+  position: relative;
+  height: 52rem;
+
+  &__side {
+    color: grey;
+    font-size: 2rem;
+    height: 52rem;
+    transition: all 1s ease-in;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    //overflow used to make the picture in the card not straighten up the corners
+    overflow: hidden;
+    box-shadow: 0 1rem 4rem rgba($color-black, 0.3);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(to bottom right, $color-secondary-green-light, $color-secondary-green-medium, $color-secondary-green-dark);
+      }
+
+      &-2 {
+        background-image: linear-gradient(to bottom right, $color-secondary-blue-light, $color-secondary-blue-medium, $color-secondary-blue-dark);
+      }
+
+      &-3 {
+        background-image: linear-gradient(to bottom right, $color-secondary-red-light, $color-secondary-red-medium, $color-secondary-red-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: color;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-green-light, $color-secondary-green-medium, $color-secondary-green-dark), url(../images/lazy.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, $color-secondary-blue-light, $color-secondary-blue-medium, $color-secondary-blue-dark), url(../images/moderate.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, $color-secondary-red-light, $color-secondary-red-medium, $color-secondary-red-dark), url(../images/intense.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: right;
+    text-transform: uppercase;
+    color: $color-white;
+    position: absolute;
+    top: 19rem;
+    right: 2rem;
+    width: 75rem;
+  }
+
+  &__heading-span {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border-radius: 5px;
+    text-shadow: 0 0.5rem 1rem rgba($color-black, 0.9);
+    box-shadow: 0 1rem 2rem rgba($color-grey-dark, 0.7);
+
+    &--1 {
+      background-image: linear-gradient(to right, rgba($color-secondary-green-light, 0.85), rgba($color-secondary-green-medium, 0.8), rgba($color-secondary-green-dark, 0.75));
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right, rgba($color-secondary-blue-light, 0.85), rgba($color-secondary-blue-medium, 0.85), rgba($color-secondary-blue-dark, 0.85));
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right, rgba($color-secondary-red-light, 0.85), rgba($color-secondary-red-medium, 0.8), rgba($color-secondary-red-dark, 0.75));
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.7rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px double $color-grey-dark;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    text-align: center;
+    transform: translateY(-50%, -50%);
+    width: 80%;
+  }
+
+  &__price-box {
+    color: $color-white;
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  &__price-only {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+
+  &__terms {
+    &-1 {
+      position: absolute;
+      top: 96%;
+      left: 10%;
+      font-size: 1rem;
+      color: $color-secondary-blue-dark;
+    }
+
+    &-2 {
+      position: absolute;
+      top: 96%;
+      left: 10%;
+      font-size: 1rem;
+      color: $color-secondary-red-dark;
+    }
+  }
+
+  @include respond(tab-port) {
+    height: auto;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.3);
+    border-radius: 3px;
+    background-color: $color-white;
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--front {
+        border-radius: 0;
+      }
+
+      &--back {
+        border-radius: 0;
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      padding: 7rem 4rem 4rem 4rem;
+      transform: translateY(0);
+      width: 100%;
+    }
+
+    &__price-box {
+      margin-bottom: 2rem;
+    }
+
+    &__price-value {
+      font-size: 5rem;
+    }
+
+    &__terms {
+      &-1 {
+        position: absolute;
+        top: 96%;
+        left: 10%;
+        font-size: 1.5rem;
+        color: $color-secondary-blue-dark;
+      }
+
+      &-2 {
+        position: absolute;
+        top: 96%;
+        left: 10%;
+        font-size: 1.5rem;
+        color: $color-secondary-red-dark;
+      }
+    }
+  }
+}

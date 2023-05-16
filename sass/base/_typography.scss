@@ -1,0 +1,220 @@
+body {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-accent-dark;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+h1,
+h2 {
+  font-family: "Tilt Prism", cursive;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Gruppo", cursive;
+}
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: 1.6rem;
+    animation-name: moveInLeft;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+
+    @include respond(tab-port) {
+      line-height: 6rem;
+    }
+
+    @include respond(phone) {
+      letter-spacing: 0.7rem;
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1.82rem;
+    animation: moveInRight 5s ease-out;
+
+    @include respond(tab-port) {
+      font-size: 1.5rem;
+      letter-spacing: 0.8rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 4rem;
+  text-transform: capitalize;
+  //funky gradient
+  display: inline-block;
+  background-image: linear-gradient(to top left, $color-primary-light, $color-primary-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  //end of gradient
+  letter-spacing: 3px;
+  transition: all 0.9s;
+  margin-bottom: 3rem;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.4rem;
+  }
+
+  &:hover {
+    transform: skewY(-6.5deg) skewX(-5deg) scale(1.3);
+    text-shadow: 0.4rem 1rem 0.5rem rgba($color-black, 0.3);
+
+    @include respond(tab-port) {
+      transform: skewY(-6.5deg) skewX(-5deg) scale(1.15);
+    }
+  }
+}
+
+.heading-secondary-back {
+  font-size: 4rem;
+  text-transform: capitalize;
+  //funky gradient
+  display: inline-block;
+  background-image: linear-gradient(to right bottom, $color-secondary-green-medium, $color-secondary-blue-medium, $color-secondary-red-medium);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  //end of gradient
+  letter-spacing: 3px;
+  transition: all 0.9s;
+
+  @include respond(tab-port) {
+    font-size: 3.5rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.4rem;
+  }
+
+  &:hover {
+    transform: skewY(6.5deg) skewX(5deg) scale(1.3);
+    text-shadow: 0.4rem 1rem 0.5rem rgba($color-black, 0.3);
+  }
+}
+
+.heading-secondary-third {
+  font-size: 4rem;
+  text-transform: capitalize;
+  //funky gradient
+  display: inline-block;
+  background-image: linear-gradient(to right bottom, $color-secondary-red-light, $color-secondary-red-medium, $color-secondary-red-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  //end of gradient
+  letter-spacing: 3px;
+  transition: all 0.9s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.4rem;
+  }
+
+  &:hover {
+    transform: translate(6em, 0) scale(1.2);
+    text-shadow: 0.4rem 1rem 0.5rem rgba($color-black, 0.3);
+
+    @include respond(tab-port) {
+      transform: translate(3em, 0) scale(1.2);
+    }
+  }
+}
+
+.heading-secondary-fourth {
+  font-size: 4rem;
+  text-transform: capitalize;
+  //funky gradient
+  display: inline-block;
+  background-image: linear-gradient(to right bottom, $color-secondary-blue-light, $color-secondary-blue-medium, $color-secondary-blue-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  //end of gradient
+  letter-spacing: 3px;
+  transition: all 0.9s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+    margin-bottom: 0.2rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.4rem;
+  }
+
+  &:hover {
+    transform: translate(0, 6rem) scale(1.2);
+    text-shadow: 0.4rem 1rem 0.5rem rgba($color-black, 0.3);
+  }
+}
+
+.heading-secondary-fifth {
+  font-size: 4rem;
+  text-transform: capitalize;
+  //funky gradient
+  display: inline-block;
+  background-image: linear-gradient(to right bottom, $color-secondary-green-light, $color-secondary-green-medium, $color-secondary-green-dark);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  //end of gradient
+  letter-spacing: 3px;
+  transition: all 0.9s;
+
+  &:hover {
+    background-image: linear-gradient(to right bottom, $color-secondary-red-light, $color-secondary-red-medium, $color-secondary-red-dark);
+    transform: skewX(20deg);
+    text-shadow: 0.4rem 1rem 0.5rem rgba($color-black, 0.3);
+  }
+}
+
+.heading-tertiary {
+  color: $color-primary-dark;
+  font-size: $headings-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  text-shadow: 0.06rem 0.12rem 0.3rem $color-primary-dark;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
